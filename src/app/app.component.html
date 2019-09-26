@@ -1,0 +1,25 @@
+<div class="content" role="main">
+  <!-- Next Steps -->
+  <h2>Next Steps</h2>
+  <p class="ft1">What do you want to do next with your app?</p>
+  <p class="ft2">What do you want to do next with your app?</p>
+
+  <input type="hidden" #selection>
+
+  <!-- Links -->
+  <div class="card-container">
+    <input [(ngModel)]="asyncSelected"
+       [typeaheadAsync]="true"
+       [typeahead]="dataSource"
+       (typeaheadLoading)="changeTypeaheadLoading($event)"
+       (typeaheadOnSelect)="typeaheadOnSelect($event)"
+       [typeaheadOptionsLimit]="7"
+       typeaheadOptionField="first_name"
+       placeholder="Locations loaded with timeout"
+       class="form-control">
+<div *ngIf="typeaheadLoading">Loading</div>
+
+  </div>
+
+</div>
+<router-outlet></router-outlet>
